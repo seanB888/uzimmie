@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct UzimmieApp: App {
+    @StateObject private var authManager = AuthManager()
     @StateObject var viewRouter = ViewRouter()
     @StateObject var cartManager = CartManager()
     @StateObject var productModel = ProductModel()
@@ -24,6 +25,7 @@ struct UzimmieApp: App {
                     .environmentObject(WishListManager())
                     .environmentObject(productModel)
                     .environmentObject(categoryModel)
+                    .environmentObject(authManager)
             case .cart:
                 CartView().environmentObject(viewRouter)
                 // Navigate back to ContentView

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignIn: View {
+    @EnvironmentObject var authManager: AuthManager
     @Environment(\.presentationMode) var goBack
     @State private var username: String = ""
     @State private var password: String = ""
@@ -142,7 +143,7 @@ struct SignIn: View {
                 if showContent == false {
                     CustomSolidButton(
                         action: {
-                            
+                            authManager.logIn()
                         },
                         buttonTitle: "Sign in",
                         foregroundColor: .black,
@@ -155,7 +156,7 @@ struct SignIn: View {
                 if showContent {
                     CustomSolidButton(
                         action: {
-                            
+                            authManager.logIn()
                         },
                         buttonTitle: "Sign up",
                         foregroundColor: .orange,
