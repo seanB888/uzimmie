@@ -19,6 +19,14 @@ struct SignIn: View {
     @State private var showConfirmPassword: Bool = false
     @State private var showContent: Bool = false
     
+    private func handleSignIn() {
+        authManager.signIn(email: username, password: password)
+    }
+    
+    private func handleSignUp() {
+        authManager.signUp(email: email, password: password)
+    }
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 5) {
@@ -143,7 +151,7 @@ struct SignIn: View {
                 if showContent == false {
                     CustomSolidButton(
                         action: {
-                            authManager.logIn()
+                            authManager.signIn(email: username, password: password)
                         },
                         buttonTitle: "Sign in",
                         foregroundColor: .black,
@@ -156,7 +164,7 @@ struct SignIn: View {
                 if showContent {
                     CustomSolidButton(
                         action: {
-                            authManager.logIn()
+                            authManager.signUp(email: username, password: password)
                         },
                         buttonTitle: "Sign up",
                         foregroundColor: .orange,

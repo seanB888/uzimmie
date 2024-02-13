@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct UzimmieApp: App {
@@ -15,7 +16,13 @@ struct UzimmieApp: App {
     @StateObject var productModel = ProductModel()
     @StateObject var categoryModel = CategoryListModel()
     
+    
+    init() {
+        FirebaseApp.configure() // Initialize Firebase
+    }
+    
     var body: some Scene {
+        
         WindowGroup {
             switch viewRouter.currentPage {
             case .home:
@@ -25,7 +32,7 @@ struct UzimmieApp: App {
                     .environmentObject(WishListManager())
                     .environmentObject(productModel)
                     .environmentObject(categoryModel)
-                    .environmentObject(authManager)
+                    .environmentObject(AuthManager())
             case .cart:
                 CartView().environmentObject(viewRouter)
                 // Navigate back to ContentView

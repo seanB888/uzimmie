@@ -24,6 +24,8 @@ struct WishListView: View {
             )
             
             if wishListManager.wishlistItems.isEmpty {
+                Text("No wishes added yet")
+            } else {
                 ForEach(wishListManager.wishlistItems) { wish in
                     WishlistCard(
                         action: {},
@@ -36,9 +38,7 @@ struct WishListView: View {
                     )
                 }
                 .foregroundStyle(.black)
-            .background(.white)
-            } else {
-                Text("No wishes added yet")
+                .background(.white)
             }
         }
         .padding(.horizontal)

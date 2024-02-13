@@ -179,7 +179,6 @@ struct DetailView: View {
                                 // Action to add to Cart
                                 withAnimation(.easeInOut) {
                                     loveProduct = true
-                                    favIcon.toggle()
                                     wishListManager.addToWishlist(product: product)
                                 }
                                 favIcon.toggle()
