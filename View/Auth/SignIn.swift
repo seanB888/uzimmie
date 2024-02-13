@@ -184,6 +184,16 @@ struct SignIn: View {
                     }
                     .foregroundStyle(.black)
                     
+                    Button {
+                        goBack.wrappedValue.dismiss()
+                    } label: {
+                        Text("Go back")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                            .underline()
+                    }
+                    .foregroundStyle(.black)
+                    
                 }
                 
                 

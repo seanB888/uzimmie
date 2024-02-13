@@ -14,27 +14,23 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             // testing secure login
-            if authManager.isUserAuthenticated {
-                ZStack(alignment: .bottom) {
-                    Home()
-                    
-                    HStack {
-                        NavigationLink(destination: SearchView()) {
-                            SearchButton()
-                                .shadow(color: .black.opacity(0.2), radius: 10, y: 5)
-                        }
-                        Spacer()
-                        // MARK: - Add Cart button...
-                        NavigationLink(destination: CartView()) {
-                            CartButton()
-                                .shadow(color: .black.opacity(0.2), radius: 10, y: 5)
-                        }
+            ZStack(alignment: .bottom) {
+                Home()
+                
+                HStack {
+                    NavigationLink(destination: SearchView()) {
+                        SearchButton()
+                            .shadow(color: .black.opacity(0.2), radius: 10, y: 5)
                     }
-                    .padding(.horizontal)
-                    .frame(maxWidth: .infinity)
+                    Spacer()
+                    // MARK: - Add Cart button...
+                    NavigationLink(destination: CartView()) {
+                        CartButton()
+                            .shadow(color: .black.opacity(0.2), radius: 10, y: 5)
+                    }
                 }
-            } else {
-                SignIn()
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity)
             }
         }
         
@@ -44,4 +40,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .environmentObject(CartManager())
+        .environmentObject(AuthManager())
 }

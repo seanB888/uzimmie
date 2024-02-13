@@ -10,17 +10,16 @@ import SwiftUI
 struct DetailView: View {
     @Environment(\.presentationMode) var goBackButton
     @EnvironmentObject var cartManager: CartManager
-    @EnvironmentObject var wishListManager: WishListManager // Add this line
+    @EnvironmentObject var wishListManager: WishListManager
+    
     @State var showMoreSizes = false
     @State private var showingCustomShareSheet = false
     @State private var showingSizeSheet = false
     @State private var selectedSize: String?
-    var product: Product
-    // var reviews: [Review]
     @State private var showAlert = false
     @State private var loveProduct = false
     @State private var favIcon = false
-    
+    var product: Product
     
     var body: some View {
         ZStack {
@@ -33,7 +32,7 @@ struct DetailView: View {
                         },
                         headerTitle: product.category,
                         headerSubTitle: product.title,
-                        headerIcon: "arrow.left", 
+                        headerIcon: "arrow.left",
                         fontSize: 45
                     )
                     .padding(.top, 30)
@@ -115,8 +114,8 @@ struct DetailView: View {
                         .frame(height: 10)
                         // MARK: - Reusable cards
                         VStack(alignment: .leading) {
-                           SizeChart(image: "xmark.diamond", description: "Shirt shown is a", sizeText: "M")
-                           SizeChart(image: "xmark.diamond", description: "Standard fit:", sizeText: "Easy and traditional")
+                            SizeChart(image: "xmark.diamond", description: "Shirt shown is a", sizeText: "M")
+                            SizeChart(image: "xmark.diamond", description: "Standard fit:", sizeText: "Easy and traditional")
                         }
                         .opacity(showMoreSizes ? 1 : 0)
                         .frame(height: showMoreSizes ? 100 : 0)
@@ -181,7 +180,7 @@ struct DetailView: View {
                                 withAnimation(.easeInOut) {
                                     loveProduct = true
                                     favIcon.toggle()
-                                    wishListManager.addToWishlist(product: product) // Add to wishlist
+                                    wishListManager.addToWishlist(product: product)
                                 }
                                 favIcon.toggle()
                             } label: {
@@ -191,11 +190,8 @@ struct DetailView: View {
                                         .foregroundStyle(.black)
                                         .background(.white)
                                     
-                                    
                                     Image(systemName: favIcon ? "suit.heart.fill" : "suit.heart")
                                         .imageScale(.large)
-                                    
-                                    
                                 }
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 50)
@@ -232,6 +228,7 @@ struct DetailView: View {
                 .navigationBarBackButtonHidden()
                 
             }
+            .scrollIndicators(.hidden)
             .foregroundStyle(.black)
             .background(.white)
             .ignoresSafeArea()

@@ -23,11 +23,23 @@ struct WishListView: View {
                 fontSize: 40
             )
             
-            List(wishListManager.wishlistItems) { product in
-                Text(product.title) // Customize as per your UI needs
-            }
-            .foregroundStyle(.black)
+            if wishListManager.wishlistItems.isEmpty {
+                ForEach(wishListManager.wishlistItems) { wish in
+                    WishlistCard(
+                        action: {},
+                        productImage: wish.productImage,
+                        productTitle: wish.title,
+                        productDescription: wish.description,
+                        productCategory: wish.category,
+                        productPrice: wish.price,
+                        productSize: "\(wish.productSizes)"
+                    )
+                }
+                .foregroundStyle(.black)
             .background(.white)
+            } else {
+                Text("No wishes added yet")
+            }
         }
         .padding(.horizontal)
         .navigationBarBackButtonHidden(true)
