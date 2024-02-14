@@ -70,7 +70,7 @@ struct CartView: View {
                         }
                         .frame(height: 333)
                     }
-                    if cartManager.items.isEmpty {
+                    if !cartManager.items.isEmpty {
                         Divider()
                         
                         // MARK: Promo section
