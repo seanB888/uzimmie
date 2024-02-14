@@ -62,6 +62,42 @@ var productList = [
             
         ]
     ),
+    Product(
+        title: "Snake Bracelet",
+        description: "550 paracord bracelet",
+        category: "Bracelets",
+        productImage: "bracelet-1",
+        productColor: ["armyGreen"],
+        productSizes: [
+            ProductSize(size: "S", quantity: 1),
+            ProductSize(size: "M", quantity: 5),
+            ProductSize(size: "L", quantity: 0),
+            ProductSize(size: "XL", quantity: 0)
+        ],
+        price: 24.0,
+        reviews: [
+            Review(reviewerName: "Mary Roberts", rating: 5, title: "Beautiful Fit", text: "Really loved this bracelet, fits perfectly!", date: Date()),
+            
+        ]
+    ),
+    Product(
+        title: "Astronaut Helmet",
+        description: "Vintage design motorcycle fullface helmet",
+        category: "Helmets",
+        productImage: "helmet-1",
+        productColor: ["lightGray"],
+        productSizes: [
+            ProductSize(size: "S", quantity: 0),
+            ProductSize(size: "M", quantity: 5),
+            ProductSize(size: "L", quantity: 5),
+            ProductSize(size: "XL", quantity: 1)
+        ],
+        price: 24.0,
+        reviews: [
+            Review(reviewerName: "Larry Hoover", rating: 5, title: "Beautiful Fit", text: "Really loved this helemt, fits perfectly and I can see and breath properly. I don't sweat when wearing it!", date: Date()),
+            
+        ]
+    ),
     
 ]
 

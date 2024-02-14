@@ -27,7 +27,7 @@ struct CartView: View {
                     headerTitle: "bag",
                     headerSubTitle: "Your Shopping Bag",
                     headerIcon: "arrow.left",
-                    fontSize: 50
+                    fontSize: 44
                 )
                 .foregroundStyle(.black)
                 
@@ -48,6 +48,7 @@ struct CartView: View {
                             )
                         }
                     }  else {
+                        // Empty bag message...
                         VStack(spacing: 20) {
                             Spacer()
                                 .frame(height: 100)
@@ -69,33 +70,47 @@ struct CartView: View {
                         }
                         .frame(height: 333)
                     }
-                    
-                    if !cartManager.items.isEmpty {
+                    if cartManager.items.isEmpty {
                         Divider()
-                        // MARK: Pickup information
+                        
+                        // MARK: Promo section
                         VStack {
+                            // Promo header
                             HStack {
-                                Text("Have a Promo Code?")
+                                Text("Promo Code")
                                     .font(.headline)
                                 Spacer()
-                                Button {
-                                    withAnimation(.easeInOut) {
+                                // button to drop down and pull up section
+                                Button{
+                                    withAnimation(.easeOut) {
                                         showPromoSection.toggle()
                                     }
                                 } label: {
                                     Image(systemName: "plus")
-                                        .rotationEffect(Angle(degrees: showPromoSection ? 45 : 90))
+                                        .rotationEffect(Angle(degrees: showPromoSection ? 45 : 0))
                                 }
                             }
-                            .padding(.top)
                             .padding(.horizontal)
+                            .frame(height: 50)
+                            .foregroundStyle(.black)
+                            .background(.white)
+                            // Text field to take promo code
+                            VStack(alignment: .leading) {
+                                TextField("Promo", text: $promoCode)
+                                    .frame(width: 250, height: 50)
+                                    .overlay(Rectangle().stroke(lineWidth: 1.0))
+                            }
+                            .padding(.top)
+                            .opacity(showPromoSection ? 1 : 0)
                             .frame(maxWidth: .infinity)
-                            
-                            TextField("Promo", text: $promoCode)
-                                .frame(width: 150, height: 60)
+                            .frame(height: showPromoSection ? 100 : 0)
+                            .background(.white)
+                            .foregroundStyle(.black)
                         }
                         .frame(maxWidth: .infinity)
-                        .frame(height: showPromoSection ? 150 : 0)
+                        .frame(height: showPromoSection ? 100 : 0)
+                        
+                        
                         // MARK: - Total amount
                         VStack(alignment: .leading, spacing: 5) {
                             Divider()

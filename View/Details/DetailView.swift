@@ -30,10 +30,10 @@ struct DetailView: View {
                         action: {
                             goBackButton.wrappedValue.dismiss()
                         },
-                        headerTitle: product.category,
+                        headerTitle: product.category.lowercased(),
                         headerSubTitle: product.title,
                         headerIcon: "arrow.left",
-                        fontSize: 45
+                        fontSize: 44
                     )
                     .padding(.top, 30)
                     
@@ -202,6 +202,7 @@ struct DetailView: View {
                                 .foregroundStyle(.gray)
                                 .padding(.top, 20)
                                 .padding(.horizontal)
+                                .multilineTextAlignment(.center)
                             
                         }
                         .frame(maxWidth: .infinity, alignment: .center)

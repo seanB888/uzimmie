@@ -48,11 +48,24 @@ struct EditProfile: View {
                     .padding(.bottom)
                     .padding(.top, 10)
                 // MARK: - Profile picture
-                Image("Profile")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
-                    .clipShape(Circle())
+                Button {
+                    // action to upload button here...
+                    
+                } label: {
+                    ZStack {
+                        Image("Profile")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                            .clipShape(Circle())
+                        
+                        Image(systemName: "camera.fill")
+                            .foregroundStyle(.white)
+                            .opacity(0.7)
+                            .imageScale(.large)
+                            .offset(y: 13)
+                    }
+                }
                 
                 VStack {
                     Text("Edit")
@@ -105,8 +118,7 @@ struct EditProfile: View {
                      .foregroundStyle(Color.theme.darrkGray)
                      
                     HStack {
-                        TextField("150 characters", text: $textBox, axis: .vertical)
-                            .frame(height: 60)
+                        TextEditor(text: $textBox)
                             .lineLimit(5)
                             .padding()
                             .overlay(Rectangle().stroke(Color.black, lineWidth: 0.5))

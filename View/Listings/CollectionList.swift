@@ -25,7 +25,7 @@ struct CollectionList: View {
                         headerTitle: "uzimmie",
                         headerSubTitle: "From Yard To The Flipping World",
                         headerIcon: "arrow.left",
-                        fontSize: 55
+                        fontSize: 44
                     )
                     
                     // MARK: -List of products

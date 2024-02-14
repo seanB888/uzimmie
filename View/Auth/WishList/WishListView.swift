@@ -18,13 +18,18 @@ struct WishListView: View {
                     goBack.wrappedValue.dismiss()
                 },
                 headerTitle: "wishlist",
-                headerSubTitle: "Your Wish",
+                headerSubTitle: "Your Favorites",
                 headerIcon: "arrow.left",
-                fontSize: 40
+                fontSize: 44
             )
             
             if wishListManager.wishlistItems.isEmpty {
-                Text("No wishes added yet")
+                VStack {
+                    Text("No love shown yet")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                }
+                .frame(maxHeight: .infinity)
             } else {
                 ForEach(wishListManager.wishlistItems) { wish in
                     WishlistCard(
@@ -41,7 +46,6 @@ struct WishListView: View {
                 .background(.white)
             }
         }
-        .padding(.horizontal)
         .navigationBarBackButtonHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(.white)

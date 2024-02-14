@@ -13,43 +13,40 @@ struct Pass: View {
     var body: some View {
         
         VStack {
-            HStack {
-                Button {
+            // Header
+            Header(
+                action: {
                     goBack.wrappedValue.dismiss()
-                } label: {
-                    Image(systemName: "arrow.left")
-                        .imageScale(.large)
-                    .foregroundStyle(.black)
-                }
-                Spacer()
-            }
-            .padding(.horizontal)
+                },
+                headerTitle: "pass",
+                headerSubTitle: "Your Special Pass",
+                headerIcon: "arrow.left",
+                fontSize: 44)
             
-            Text("Pass")
-                .font(.title)
-            
+           // member since
             Text("Member Since January 2010")
                 .font(.footnote)
                 .foregroundStyle(Color.theme.darrkGray)
             
-            // QRCODE
+            // Will replace with QRCODE
             Rectangle()
                 .frame(width: 350, height: 350)
             
-            HStack(alignment: .center) {
+            VStack(alignment: .center) {
                 Text("Check in easily and get personalized service at Uzimmie stores and events.")
                 Text("Learn more.")
                     .fontWeight(.semibold)
                 
             }
+            .padding(.horizontal)
             .font(.footnote)
             
             Spacer()
         }
-        .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(.white)
         .foregroundStyle(.black)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

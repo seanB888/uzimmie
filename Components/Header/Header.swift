@@ -50,6 +50,7 @@ struct Header: View {
             Spacer()
                 .frame(width: 5)
         }
+        .padding(.horizontal)
     }
 }
 
@@ -59,7 +60,7 @@ struct Header: View {
         headerTitle: "uzimmie",
         headerSubTitle: "From Bull Bay to di flippin World",
         headerIcon: "line.3.horizontal",
-        fontSize: 50
+        fontSize: 44
     )
     .environmentObject(CartManager())
 }

@@ -21,11 +21,10 @@ struct Home: View {
                         navigateToView = true
                     },
                     headerTitle: "uzimmie",
-                    headerSubTitle: "From Bull Bay to di World!",
+                    headerSubTitle: "From Bull Bay to di Flippin World!",
                     headerIcon: "line.3.horizontal",
-                    fontSize: 40
+                    fontSize: 44
                 )
-                .padding(.horizontal)
                 .padding(.bottom, 20)
                 
                 NavigationLink(destination: Profile(), isActive: $navigateToView) { EmptyView() }

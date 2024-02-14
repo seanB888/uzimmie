@@ -19,7 +19,7 @@ struct ProfileIconButton: View {
                 .font(.caption)
         }
         .padding()
-        .frame(width: 100, height: 100)
+        .frame(width: 80, height: 100)
         .foregroundStyle(.black)
     }
 }

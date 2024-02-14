@@ -20,14 +20,13 @@ struct SearchView: View {
                 headerTitle: "search",
                 headerSubTitle: "Search our Inventory",
                 headerIcon: "arrow.left",
-                fontSize: 50
+                fontSize: 44
             )
             .foregroundStyle(.black)
 
             Text("Inventory")
                 .font(.largeTitle)
         }
-        .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(.white)
         .foregroundStyle(.black)

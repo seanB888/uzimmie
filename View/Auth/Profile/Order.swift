@@ -8,15 +8,28 @@
 import SwiftUI
 
 struct Order: View {
+    @Environment(\.presentationMode) var goBack
+    
     var body: some View {
         VStack {
-            Text("Orders")
-                .font(.largeTitle)
+            // Header
+            Header(
+                action: {
+                    goBack.wrappedValue.dismiss()
+                },
+                headerTitle: "orders",
+                headerSubTitle: "Your Orders",
+                headerIcon: "arrow.left",
+                fontSize: 44
+            )
+            
+            Text("You haven't completed an order yet.")
+                .font(.headline)
         }
-        .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(.white)
         .foregroundStyle(.black)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

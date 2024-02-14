@@ -22,6 +22,7 @@ struct ColorTheme {
     let navyBlue = Color("NavyBlue")
     let reed = Color("Reed")
     let yeellow = Color("Yeellow")
+    let lightGray = Color("LightGray")
     
     func color(from name: String) -> Color {
         switch name {
