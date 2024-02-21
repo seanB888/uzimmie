@@ -33,11 +33,14 @@ struct CartItemCard: View {
                 
                 VStack(alignment: .leading) {
                     Text(productTitle)
+                        .fontWeight(.semibold)
                         .font(.title2)
                     
                     Text(productDescription)
                         .font(.callout)
+                        .lineLimit(3)
                         .opacity(0.5)
+                        
                     
                     Text(productCategory)
                         .font(.callout)
@@ -58,34 +61,40 @@ struct CartItemCard: View {
             
             // MARK: Quantity and price
             HStack {
-//                HStack(spacing: 0) {
-//                    Text("Qty \(1)")
-//                    Image(systemName: "chevron.down")
-//                        .padding(.leading)
-//                }
-//                .padding(.trailing)
-                
                 // Quantity Button...
                 HStack {
+                    Text("Qty")
                     Button(action: {
-                        
+                        // minus count action...
                     }) {
                         Image(systemName: "minus")
+                            .foregroundStyle(.white)
+                    }
+                    .padding()
+                    .frame(width: 40, height: 20)
+                    .background {
+                        Capsule().fill(.black)
                     }
                     
+                    // Quantity count...
                     Text("1")
                     
                     Button(action: {
-                        
+                        // plus count action...
                     }) {
                         Image(systemName: "plus")
+                            .foregroundStyle(.white)
+                    }
+                    .padding()
+                    .frame(width: 40, height: 20)
+                    .background {
+                        Capsule().fill(.black)
                     }
                     
                     Spacer()
                     
-                    
                 }
-                .padding()
+                .padding(.top)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
                 
@@ -98,6 +107,7 @@ struct CartItemCard: View {
                        .foregroundStyle(.red)
                  }
                   .frame(width: 40)
+                  .padding(.trailing,40)
                 
                 Spacer()
                 
@@ -113,12 +123,10 @@ struct CartItemCard: View {
             VStack(alignment: .leading, spacing: 20) {
                 ShippingInformation(HeaderText: "Shipping", bodyText: "Arrives by Mon, Feb 5", titleText: "Edit Location")
                 ShippingInformation(HeaderText: "Pickup", bodyText: "Unavailable at", titleText: "Sawgrass")
-                
-                
             }
-            .frame(height: 150)
-            .frame(maxWidth: .infinity)
             .padding(.horizontal)
+            .frame(height: 150)
+            .frame(maxWidth: .infinity, alignment: .leading)
             
         }
     }
