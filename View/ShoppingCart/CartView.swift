@@ -36,8 +36,9 @@ struct CartView: View {
                     if !cartManager.items.isEmpty {
                         ForEach(cartManager.items) { item in
                             CartItemCard(
+                                cartItem: item,
                                 action: {
-                                    
+                                    cartManager.removeFromCart(item: item)
                                 },
                                 productImage: item.product.productImage,
                                 productTitle: item.product.title,

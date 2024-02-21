@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CartItemCard: View {
     @EnvironmentObject var cartManager: CartManager
-   // var cartItem: CartItem
+   var cartItem: CartItem
     @State var action: () -> Void
     var productImage: String
     var productTitle: String
@@ -66,6 +66,7 @@ struct CartItemCard: View {
                     Text("Qty")
                     Button(action: {
                         // minus count action...
+                        cartManager.decreaseQuantity(of: cartItem)
                     }) {
                         Image(systemName: "minus")
                             .foregroundStyle(.white)
@@ -77,10 +78,11 @@ struct CartItemCard: View {
                     }
                     
                     // Quantity count...
-                    Text("1")
+                    Text("\(cartItem.quantity)")
                     
                     Button(action: {
                         // plus count action...
+                        cartManager.increaseQuantity(of: cartItem)
                     }) {
                         Image(systemName: "plus")
                             .foregroundStyle(.white)
@@ -134,7 +136,7 @@ struct CartItemCard: View {
 
 #Preview {
     CartItemCard(
-        action: {},
+        cartItem: CartItem(product: productList[0], selectedSize: "M", quantity: 5), action: {},
         productImage: "design-1",
         productTitle: "Blue Shirt", 
         productDescription: "Blue car culture shirt. Crew neck style 100% cotton.",
