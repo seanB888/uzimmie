@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CartItemCard: View {
+    @EnvironmentObject var cartManager: CartManager
+   // var cartItem: CartItem
     @State var action: () -> Void
     var productImage: String
     var productTitle: String
@@ -30,7 +32,7 @@ struct CartItemCard: View {
                     .frame(width: 150, height: 150)
                 
                 VStack(alignment: .leading) {
-                    Text("\(productTitle)")
+                    Text(productTitle)
                         .font(.title2)
                     
                     Text(productDescription)
@@ -56,27 +58,51 @@ struct CartItemCard: View {
             
             // MARK: Quantity and price
             HStack {
-                HStack {
-                    Text("Qty \(1)")
-                    Image(systemName: "chevron.down")
-                        .padding(.leading)
-                    
-                    // Delete Button
-                    Button {
-                     // Delete action...
-                     action()
-                     } label: {
-                        Image(systemName: "trash")
-                           .foregroundStyle(.red)
-                     }
-                      .frame(width: 40)
-                }
+//                HStack(spacing: 0) {
+//                    Text("Qty \(1)")
+//                    Image(systemName: "chevron.down")
+//                        .padding(.leading)
+//                }
+//                .padding(.trailing)
                 
+                // Quantity Button...
+                HStack {
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: "minus")
+                    }
+                    
+                    Text("1")
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                    
+                    Spacer()
+                    
+                    
+                }
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+                
+                // Delete Button
+                Button {
+                 // Delete action...
+                 action()
+                 } label: {
+                    Image(systemName: "trash")
+                       .foregroundStyle(.red)
+                 }
+                  .frame(width: 40)
                 
                 Spacer()
                 
-                
                 Text(String(format: "$%.2f", productPrice))
+                
                     
             }
             .font(.headline)
@@ -108,6 +134,7 @@ struct CartItemCard: View {
         productPrice: 24.0,
         productSize: "M"
     )
+    .environmentObject(CartManager())
 }
 
 struct ShippingInformation: View {

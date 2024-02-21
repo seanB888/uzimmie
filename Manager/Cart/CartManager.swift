@@ -46,4 +46,23 @@ class CartManager: ObservableObject {
     var productCount: Int {
         items.reduce(0) { $0 + $1.quantity }
     }
+    
+    func increaseQuantity(of item: CartItem) {
+        if let index = items.firstIndex(where: { $0.id == item.id }) {
+            items[index].quantity += 1
+            recalculateTotal()
+        }
+    }
+
+    func decreaseQuantity(of item: CartItem) {
+        if let index = items.firstIndex(where: { $0.id == item.id }) {
+            items[index].quantity = max(items[index].quantity - 1, 1) // Ensure quantity doesn't go below 1
+            recalculateTotal()
+        }
+    }
+
+    private func recalculateTotal() {
+        total = items.reduce(0) { $0 + ($1.product.price * CGFloat($1.quantity)) }
+    }
+
 }

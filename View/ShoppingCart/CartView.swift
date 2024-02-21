@@ -37,7 +37,7 @@ struct CartView: View {
                         ForEach(cartManager.items) { item in
                             CartItemCard(
                                 action: {
-                                    cartManager.removeFromCart(item: item) // Make sure this method accepts a CartItem
+                                    
                                 },
                                 productImage: item.product.productImage,
                                 productTitle: item.product.title,

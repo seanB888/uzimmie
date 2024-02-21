@@ -12,12 +12,11 @@ struct ContentView: View {
     @StateObject var cartManager = CartManager()
     
     var body: some View {
-        if authManager.isUserAuthenticated {
+        if !authManager.isUserAuthenticated {
             NavigationStack {
                 // testing secure login
                 ZStack(alignment: .bottom) {
                     Home()
-                    
                     HStack {
                         NavigationLink(destination: SearchView()) {
                             SearchButton()
@@ -45,4 +44,5 @@ struct ContentView: View {
     ContentView()
         .environmentObject(CartManager())
         .environmentObject(AuthManager())
+        .environmentObject(WishListManager())
 }

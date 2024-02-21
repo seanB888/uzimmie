@@ -16,13 +16,12 @@ struct UzimmieApp: App {
     @StateObject var productModel = ProductModel()
     @StateObject var categoryModel = CategoryListModel()
     
-    
     init() {
-        FirebaseApp.configure() // Initialize Firebase
+        // Configure Firebase
+        FirebaseApp.configure()
     }
     
     var body: some Scene {
-        
         WindowGroup {
             switch viewRouter.currentPage {
             case .home:
