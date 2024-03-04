@@ -10,9 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var authManager: AuthManager
     @StateObject var cartManager = CartManager()
+    @EnvironmentObject var productVM: ProductViewModel
     
     var body: some View {
-        if !authManager.isUserAuthenticated {
+        if authManager.isUserAuthenticated {
             NavigationStack {
                 // testing secure login
                 ZStack(alignment: .bottom) {
@@ -36,13 +37,13 @@ struct ContentView: View {
         } else {
             SignIn()
         }
-        
     }
 }
 
 #Preview {
     ContentView()
         .environmentObject(CartManager())
+        .environmentObject(ProductViewModel())
         .environmentObject(AuthManager())
         .environmentObject(WishListManager())
 }

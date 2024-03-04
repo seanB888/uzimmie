@@ -11,7 +11,7 @@ struct CartView: View {
     @Environment(\.presentationMode) var goBackFromWhichYouCame
     @StateObject var viewRouter = ViewRouter()
     @EnvironmentObject var cartManager: CartManager
-    @EnvironmentObject var productModel: ProductModel
+    @EnvironmentObject var productVM: ProductViewModel
     @EnvironmentObject var categoryModel: CategoryListModel
     @State var promoCode: String = ""
     @State var showPromoSection = false
@@ -40,7 +40,7 @@ struct CartView: View {
                                 action: {
                                     cartManager.removeFromCart(item: item)
                                 },
-                                productImage: item.product.productImage,
+                                productImage: "\(item.product.productImage)",
                                 productTitle: item.product.title,
                                 productDescription: item.product.description,
                                 productCategory: item.product.category,
@@ -187,6 +187,6 @@ struct CartView: View {
     CartView()
         .environmentObject(AppState())
         .environmentObject(CartManager())
-        .environmentObject(ProductModel())
+        .environmentObject(ProductViewModel())
         .environmentObject(CategoryListModel())
 }

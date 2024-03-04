@@ -34,7 +34,7 @@ struct WishListView: View {
                 ForEach(wishListManager.wishlistItems) { wish in
                     WishlistCard(
                         action: {},
-                        productImage: wish.productImage,
+                        productImage: "\(wish.productImage)",
                         productTitle: wish.title,
                         productDescription: wish.description,
                         productCategory: wish.category,

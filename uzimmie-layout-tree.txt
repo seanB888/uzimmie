@@ -1,0 +1,197 @@
+.
+├── Assets.xcassets
+│   ├── AccentColor.colorset
+│   │   └── Contents.json
+│   ├── AppIcon.appiconset
+│   │   └── Contents.json
+│   ├── Colors
+│   │   ├── Accent.colorset
+│   │   │   └── Contents.json
+│   │   ├── ArmyGreen.colorset
+│   │   │   └── Contents.json
+│   │   ├── Bluee.colorset
+│   │   │   └── Contents.json
+│   │   ├── Contents.json
+│   │   ├── DarrkGray.colorset
+│   │   │   └── Contents.json
+│   │   ├── Hematite.colorset
+│   │   │   └── Contents.json
+│   │   ├── LightGray.colorset
+│   │   │   └── Contents.json
+│   │   ├── Mustard.colorset
+│   │   │   └── Contents.json
+│   │   ├── NavyBlue.colorset
+│   │   │   └── Contents.json
+│   │   ├── Reed.colorset
+│   │   │   └── Contents.json
+│   │   └── Yeellow.colorset
+│   │       └── Contents.json
+│   ├── Contents.json
+│   └── Images
+│       ├── Art
+│       │   └── Contents.json
+│       ├── Bracelets
+│       │   ├── Contents.json
+│       │   ├── bracelet-1.imageset
+│       │   │   ├── Contents.json
+│       │   │   └── bracelet-1.png
+│       │   ├── bracelet-2.imageset
+│       │   │   ├── Contents.json
+│       │   │   └── bracelet-2.png
+│       │   ├── bracelet-3.imageset
+│       │   │   ├── Contents.json
+│       │   │   └── bracelet-3.png
+│       │   ├── bracelet-4.imageset
+│       │   │   ├── Contents.json
+│       │   │   └── bracelet-4.png
+│       │   ├── bracelet-5.imageset
+│       │   │   ├── Contents.json
+│       │   │   └── bracelet-5.png
+│       │   └── bracelet-6.imageset
+│       │       ├── Contents.json
+│       │       └── bracelet-6.png
+│       ├── CompanyLogo
+│       │   ├── Contents.json
+│       │   └── logo.imageset
+│       │       ├── Contents.json
+│       │       └── logo.png
+│       ├── Contents.json
+│       ├── Helmet
+│       │   ├── Contents.json
+│       │   ├── helmet-1.imageset
+│       │   │   ├── Contents.json
+│       │   │   └── helmet-1.png
+│       │   └── helmet-2.imageset
+│       │       ├── Contents.json
+│       │       └── helmet-2.png
+│       ├── Profile
+│       │   ├── Contents.json
+│       │   └── Profile.imageset
+│       │       ├── 1080x1080.png
+│       │       └── Contents.json
+│       ├── Stickers
+│       │   ├── Contents.json
+│       │   ├── sticker-1.imageset
+│       │   │   ├── Contents.json
+│       │   │   └── sticker-1.png
+│       │   ├── sticker-2.imageset
+│       │   │   ├── Contents.json
+│       │   │   └── sticker-2.png
+│       │   └── sticker-3.imageset
+│       │       ├── Contents.json
+│       │       └── sticker-3.png
+│       └── tees
+│           ├── Contents.json
+│           ├── design-1.imageset
+│           │   ├── Contents.json
+│           │   └── design-1.png
+│           ├── design-10.imageset
+│           │   ├── Contents.json
+│           │   └── design-10.png
+│           ├── design-11.imageset
+│           │   ├── Contents.json
+│           │   └── design-11.png
+│           ├── design-2.imageset
+│           │   ├── Contents.json
+│           │   └── design-2.png
+│           ├── design-3.imageset
+│           │   ├── Contents.json
+│           │   └── design-3.png
+│           ├── design-4.imageset
+│           │   ├── Contents.json
+│           │   └── design-4.png
+│           ├── design-5.imageset
+│           │   ├── Contents.json
+│           │   └── design-5.png
+│           ├── design-6.imageset
+│           │   ├── Contents.json
+│           │   └── design-6.png
+│           ├── design-7.imageset
+│           │   ├── Contents.json
+│           │   └── design-7.png
+│           ├── design-8.imageset
+│           │   ├── Contents.json
+│           │   └── design-8.png
+│           └── design-9.imageset
+│               ├── Contents.json
+│               └── design-9.png
+├── Components
+│   ├── Alert
+│   │   └── CustomAlert.swift
+│   ├── Button
+│   │   └── CustomSolidButton.swift
+│   ├── Buttons
+│   │   ├── CartButton.swift
+│   │   ├── CustomBorderButton.swift
+│   │   ├── CustomSolidButton.swift
+│   │   ├── ProfileIconButton.swift
+│   │   └── SearchButton.swift
+│   ├── Card
+│   │   ├── CartItemCard.swift
+│   │   ├── LargeProductCard.swift
+│   │   ├── SizeChart.swift
+│   │   ├── SmallProductCard.swift
+│   │   └── WishlistCard.swift
+│   ├── CollectionSlider
+│   │   └── CollectionView.swift
+│   ├── DetailPage
+│   │   ├── CommunicationSection.swift
+│   │   ├── ReviewSection.swift
+│   │   └── ShippingSection.swift
+│   ├── Header
+│   │   └── Header.swift
+│   ├── NavBar
+│   │   └── CategoryNavBar.swift
+│   └── Sheets
+│       ├── ShareSheet.swift
+│       ├── SizeSheet.swift
+│       └── UzimmieHelp.swift
+├── ContentView.swift
+├── Extension
+│   ├── AppState.swift
+│   ├── Colors.swift
+│   └── ViewRouter.swift
+├── GoogleService-Info.plist
+├── Manager
+│   ├── Auth
+│   │   └── AuthManager.swift
+│   ├── Cart
+│   │   └── CartManager.swift
+│   └── WishList
+│       └── WishListManager.swift
+├── Model
+│   ├── CategoryModel.swift
+│   └── ProductModel.swift
+├── Preview Content
+│   └── Preview Assets.xcassets
+│       └── Contents.json
+├── Services
+│   ├── DatabaseConnectionService.swift
+│   └── StoreInteraction.swift
+├── Util
+├── UzimmieApp.swift
+├── View
+│   ├── Auth
+│   │   ├── Profile
+│   │   │   ├── EditProfile.swift
+│   │   │   ├── Order.swift
+│   │   │   ├── Pass.swift
+│   │   │   ├── Profile.swift
+│   │   │   └── Settings.swift
+│   │   ├── SignIn.swift
+│   │   └── WishList
+│   │       └── WishListView.swift
+│   ├── Core
+│   │   ├── Home.swift
+│   │   └── SearchView.swift
+│   ├── Details
+│   │   └── DetailView.swift
+│   ├── Listings
+│   │   └── CollectionList.swift
+│   └── ShoppingCart
+│       └── CartView.swift
+├── ViewModel
+│   └── ProductViewModel.swift
+└── uzimmie-layout-tree.txt
+
+76 directories, 119 files

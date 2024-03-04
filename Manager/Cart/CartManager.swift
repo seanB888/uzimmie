@@ -10,11 +10,11 @@ import SwiftUI
 
 struct CartItem: Identifiable {
     let id: UUID
-    var product: Product
+    var product: ProductItems
     var selectedSize: String
     var quantity: Int
 
-    init(product: Product, selectedSize: String, quantity: Int = 1) {
+    init(product: ProductItems, selectedSize: String, quantity: Int = 1) {
         self.id = UUID() // Unique identifier for each cart item
         self.product = product
         self.selectedSize = selectedSize
@@ -26,7 +26,7 @@ class CartManager: ObservableObject {
     @Published private(set) var items: [CartItem] = []
     @Published private(set) var total: CGFloat = 0.0
     
-    func addToCart(product: Product, selectedSize: String? = nil) {
+    func addToCart(product: ProductItems, selectedSize: String? = nil) {
         guard let size = selectedSize, let sizeInfo = product.productSizes.first(where: { $0.size == size }) else { return }
         
         if let index = items.firstIndex(where: { $0.product.id == product.id && $0.selectedSize == size }) {

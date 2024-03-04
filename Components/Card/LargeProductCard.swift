@@ -12,16 +12,38 @@ struct LargeProductCard: View {
     @State var productTitle: String
     @State var productCategory: String
     @State var productPrice: String
-    @State var productImage: String
-
+    @State var productImages: [String]
+    
+    var placeholderImage: Image
     
     var body: some View {
         ZStack {
             // MARK: -Product Image
-            Image(productImage)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 336)
+            Group {
+                if let urlString = productImages.first, let url = URL(string: urlString) {
+                    AsyncImage(url: url) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } placeholder: {
+                        ProgressView()
+                    }
+                } else {
+                    placeholderImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
+            }
+            .frame(width: 336)
+            
+//            AsyncImage(url: URL(string: productImage.first ?? placeholderImage)) { image in
+//                image
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//            } placeholder: {
+//                ProgressView()
+//            }
+//            .frame(width: 336)
             
             // MARK: - Product Information
             
@@ -82,9 +104,10 @@ struct LargeProductCard: View {
         productTitle: "Snake Knot",
         productCategory: "Bracelet",
         productPrice: "$15.00",
-        productImage: "design-1"
+        productImages: ["https://uzimmie.com/p/products/hoodies/hoodie-1.png", "https://uzimmie.com/p/products/hoodies/hoodie-2.png"], 
+        placeholderImage: Image("design")
     )
     .environmentObject(CartManager())
-    .environmentObject(ProductModel())
+    .environmentObject(ProductViewModel())
     .environmentObject(CategoryListModel())
 }

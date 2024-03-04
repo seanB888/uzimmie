@@ -19,7 +19,7 @@ struct DetailView: View {
     @State private var showAlert = false
     @State private var loveProduct = false
     @State private var favIcon = false
-    var product: Product
+    var product: ProductItems
     
     var body: some View {
         ZStack {
@@ -38,7 +38,7 @@ struct DetailView: View {
                     .padding(.top, 30)
                     
                     // MARK: - Product image
-                    Image(product.productImage)
+                    Image("\(product.productImage)")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -214,7 +214,7 @@ struct DetailView: View {
                         ReviewSection(reviews: product.reviews)
                         
                         // MAMRK: - Communications
-                        CommunicationSection(shareAction: { showingCustomShareSheet = true }, image: product.productImage, title: product.title, category: product.category, description: product.description)
+                        CommunicationSection(shareAction: { showingCustomShareSheet = true }, image: "\(product.productImage)", title: product.title, category: product.category, description: product.description)
                         
                         Spacer()
                     }
@@ -268,9 +268,28 @@ struct DetailView: View {
     }
 }
 
+// Add a static example product for previews
+extension ProductItems {
+    static var example: ProductItems {
+        return ProductItems(
+            id: "1",
+            data: [
+                "title": "Product",
+                "description": "This is an example product description.",
+                "category": "Example Category",
+                "price": 19.99,
+                "productImage": ["example_image"],
+                "productColor": ["red", "green"],
+                "productSizes": ["M": 5, "L": 3],
+                "reviews": [["date": "2024-01-01", "rating": 5, "reviewerName": "John Doe", "text": "Great product!", "title": "Loved it!"]]
+            ]
+        )
+    }
+}
+
+
 #Preview {
-    
-    DetailView(product: productList[0])
+    DetailView(product: ProductItems.example)
         .environmentObject(CartManager())
         .environmentObject(WishListManager())
 }

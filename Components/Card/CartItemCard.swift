@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct CartItemCard: View {
+    @StateObject var productVM = ProductViewModel()
     @EnvironmentObject var cartManager: CartManager
-   var cartItem: CartItem
+    var cartItem: CartItem
     @State var action: () -> Void
     var productImage: String
     var productTitle: String
@@ -136,14 +137,8 @@ struct CartItemCard: View {
 
 #Preview {
     CartItemCard(
-        cartItem: CartItem(product: productList[0], selectedSize: "M", quantity: 5), action: {},
-        productImage: "design-1",
-        productTitle: "Blue Shirt", 
-        productDescription: "Blue car culture shirt. Crew neck style 100% cotton.",
-        productCategory: "Tees",
-        productPrice: 24.0,
-        productSize: "M"
-    )
+        cartItem: CartItem(product: ProductItems(id: "", data: ["": ""]), selectedSize: "M", quantity: 1), action: {}, productImage: "", productTitle: "", productDescription: "", productCategory: "", productPrice: 0.5, productSize: "")
+    .environmentObject(ProductViewModel())
     .environmentObject(CartManager())
 }
 

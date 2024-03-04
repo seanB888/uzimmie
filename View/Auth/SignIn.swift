@@ -30,6 +30,8 @@ struct SignIn: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 5) {
+                Spacer()
+                    .frame(height: 50)
                 Image("logo")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -48,6 +50,7 @@ struct SignIn: View {
                             .keyboardType(.emailAddress)
                     }
                     .padding()
+                    .frame(height: 55)
                     .overlay(Capsule().fill(.clear).border(Color.black, width: 1))
                     .padding(.horizontal)
                     
@@ -71,6 +74,7 @@ struct SignIn: View {
                             .foregroundStyle(.black)
                         }
                         .padding()
+                        .frame(height: 55)
                         .overlay(Capsule().fill(.clear).border(Color.black, width: 1))
                         .padding(.horizontal)
                         
@@ -201,16 +205,14 @@ struct SignIn: View {
                             .underline()
                     }
                     .foregroundStyle(.black)
-                    
                 }
-                
-                
             }
             .padding(.horizontal)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .background(.white)
             .foregroundStyle(.black)
             .navigationBarBackButtonHidden(true)
+            .environment(\.colorScheme, .light)
         }
         .foregroundStyle(.black)
         .background(.white)

@@ -10,7 +10,7 @@ import SwiftUI
 struct CollectionList: View {
     @Environment(\.presentationMode) var goBackFromWhichYouCame
     @EnvironmentObject var cartManager: CartManager
-    @EnvironmentObject var productModel: ProductModel
+    @EnvironmentObject var productVM: ProductViewModel
     @EnvironmentObject var categoryModel: CategoryListModel
     
     var body: some View {
@@ -30,12 +30,12 @@ struct CollectionList: View {
                     
                     // MARK: -List of products
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                        ForEach(productList, id: \.id) { item in
+                        ForEach(productVM.products, id: \.id) { item in
                               SmallProductCard(
                                 productTitle: item.title,
                                 productCategory: item.category,
                                 productPrice: "\(item.price)",
-                                productImage: item.productImage
+                                productImage: "\(item.productImage)"
                               )
                         }
                     }
@@ -51,6 +51,6 @@ struct CollectionList: View {
 #Preview {
     CollectionList()
         .environmentObject(CartManager())
-        .environmentObject(ProductModel())
+        .environmentObject(ProductViewModel())
         .environmentObject(CategoryListModel())
 }

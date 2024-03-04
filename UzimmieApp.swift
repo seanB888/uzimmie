@@ -8,19 +8,24 @@
 import SwiftUI
 import Firebase
 
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Configure Firebase here
+        FirebaseApp.configure()
+        return true
+    }
+}
+
 @main
 struct UzimmieApp: App {
+    // Use the AppDelegate with UIApplicationDelegateAdaptor
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var authManager = AuthManager()
     @StateObject var viewRouter = ViewRouter()
     @StateObject var cartManager = CartManager()
-    @StateObject var productModel = ProductModel()
+    @StateObject var productVM = ProductViewModel()
     @StateObject var categoryModel = CategoryListModel()
-    
-    init() {
-        // Configure Firebase
-        FirebaseApp.configure()
-    }
-    
+
     var body: some Scene {
         WindowGroup {
             switch viewRouter.currentPage {
@@ -29,7 +34,7 @@ struct UzimmieApp: App {
                     .environmentObject(viewRouter)
                     .environmentObject(cartManager)
                     .environmentObject(WishListManager())
-                    .environmentObject(productModel)
+                    .environmentObject(productVM)
                     .environmentObject(categoryModel)
                     .environmentObject(authManager)
             case .cart:
@@ -39,7 +44,6 @@ struct UzimmieApp: App {
                     viewRouter.currentPage = .home
                 }
             }
-            
         }
     }
 }

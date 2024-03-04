@@ -9,12 +9,11 @@ import SwiftUI
 
 struct CollectionView: View {
     @EnvironmentObject var cartManager: CartManager
-    @EnvironmentObject var productModel: ProductModel
-    @State private var selectedProduct: Product?
+    @EnvironmentObject var productVM: ProductViewModel
     var selectedCategory: String
     
-    var filteredProducts: [Product] {
-        productList.filter { product in
+    var filteredProducts: [ProductItems] {
+        productVM.products.filter { product in
             selectedCategory == "All" || product.category == selectedCategory
         }
     }
@@ -41,23 +40,16 @@ struct CollectionView: View {
                 NavigationLink(destination: DetailView(product: item).environmentObject(cartManager)) {
                     LargeProductCard(
                         action: {
-                            self.selectedProduct = item
                             cartManager.addToCart(product: item)
                         },
                         productTitle: item.title,
                         productCategory: item.category,
                         productPrice: String(format: "$%.2f", item.price),
-                        productImage: item.productImage
+                        productImages: item.productImage,
+                        placeholderImage: Image("design-1")
+                    
                     )
                     .environmentObject(cartManager)
-//                    .background(
-//                        NavigationLink(
-//                            destination: DetailView(product: item).environmentObject(cartManager),
-//                            isActive: .constant(selectedProduct == item),
-//                            label: { EmptyView() }
-//                        )
-//                        .hidden() // Hide the NavigationLink to only use it for navigation
-//                    )
                     .foregroundStyle(.black)
                 }
             }
@@ -70,11 +62,11 @@ struct CollectionView: View {
 #Preview {
     CollectionView(selectedCategory: "All")
         .environmentObject(CartManager())
-        .environmentObject(ProductModel())
+        .environmentObject(ProductViewModel())
 }
 
-extension Product: Equatable {
-    static func == (lhs: Product, rhs: Product) -> Bool {
+extension ProductItems: Equatable {
+    static func == (lhs: ProductItems, rhs: ProductItems) -> Bool {
         return lhs.id == rhs.id
     }
 }

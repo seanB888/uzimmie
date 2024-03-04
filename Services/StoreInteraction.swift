@@ -7,7 +7,7 @@
 import UIKit
 
 class StoreInteraction {
-    func shareProduct(product: Product, appURL: URL) -> [Any] {
+    func shareProduct(product: ProductItems, appURL: URL) -> [Any] {
         // Combine title and category in one string for clarity
         let title = "\(product.title)"
         let category = "\(product.category)"
@@ -26,7 +26,7 @@ class StoreInteraction {
         var itemsToShare: [Any] = [productDetails, downloadMessage]
         
         // If there's an image, add it to the share items
-        if let image = UIImage(named: product.productImage) {
+        if let image = UIImage(named: "\(product.productImage)") {
             itemsToShare.insert(image, at: 0) // This makes the image the first item
         }
         

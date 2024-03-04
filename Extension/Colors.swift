@@ -23,6 +23,7 @@ struct ColorTheme {
     let reed = Color("Reed")
     let yeellow = Color("Yeellow")
     let lightGray = Color("LightGray")
+    let hematite = Color("Hematite")
     
     func color(from name: String) -> Color {
         switch name {
@@ -34,6 +35,7 @@ struct ColorTheme {
         case "navyBlue": return navyBlue
         case "reed": return reed
         case "yeellow": return yeellow
+        case "hematite": return hematite
         default: return background
         }
     }

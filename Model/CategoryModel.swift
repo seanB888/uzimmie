@@ -20,7 +20,9 @@ struct CategoryModel: Identifiable, Hashable {
 var categoryList: [CategoryModel] = [
     CategoryModel(icon: "", name: "All"),
     CategoryModel(icon: "xmark.diamond", name: "Tees"),
+    CategoryModel(icon: "xmark.diamond", name: "Hoodies"),
     CategoryModel(icon: "xmark.diamond", name: "Bracelets"),
     CategoryModel(icon: "xmark.diamond", name: "Helmets"),
+    CategoryModel(icon: "xmark.diamond", name: "Art"),
     CategoryModel(icon: "xmark.diamond", name: "Stickers")
 ]

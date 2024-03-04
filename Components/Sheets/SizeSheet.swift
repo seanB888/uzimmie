@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SizeSheet: View {
     @EnvironmentObject var cartManager: CartManager
-    let product: Product // You need to pass the specific product
+    let product: ProductItems // You need to pass the specific product
     let productSizes: [ProductSize] // Array of ProductSize to choose from
     @Binding var selectedSize: String? // Currently selected size
     @Binding var isPresented: Bool
