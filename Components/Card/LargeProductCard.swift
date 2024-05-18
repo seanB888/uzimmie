@@ -107,7 +107,7 @@ struct LargeProductCard: View {
         productImages: ["https://uzimmie.com/p/products/hoodies/hoodie-1.png", "https://uzimmie.com/p/products/hoodies/hoodie-2.png"], 
         placeholderImage: Image("design")
     )
-    .environmentObject(CartManager())
-    .environmentObject(ProductViewModel())
-    .environmentObject(CategoryListModel())
+    // .environmentObject(CartManager())
+    // .environmentObject(ProductViewModel())
+    // .environmentObject(CategoryListModel())
 }

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SizeSheet: View {
-    @EnvironmentObject var cartManager: CartManager
-    let product: ProductItems // You need to pass the specific product
-    let productSizes: [ProductSize] // Array of ProductSize to choose from
+    // @EnvironmentObject var cartManager: CartManager
+    // let product: ProductItems // You need to pass the specific product
+    // let productSizes: [ProductSize] // Array of ProductSize to choose from
     @Binding var selectedSize: String? // Currently selected size
     @Binding var isPresented: Bool
     
@@ -23,41 +23,41 @@ struct SizeSheet: View {
             
             Divider()
             
-            ScrollView {
-                VStack {
-                    ForEach(productSizes) { productSize in
-                        Button(action: {
-                            self.selectedSize = productSize.size
-                            // self.selectedSize = productSize.size
-                            guard let size = selectedSize else { return }
-                            cartManager.addToCart(product: product, selectedSize: size)
-                            self.isPresented = false
-                        }) {
-                            HStack {
-                                Text(productSize.size)
-                                    .foregroundColor(selectedSize == productSize.size ? .black : .gray)
-                                
-                                // Display message based on quantity
-                                Text(stockMessage(for: productSize.quantity))
-                                    .foregroundColor(.black)
-                                    .font(.footnote)
-                                
-                                Spacer()
-                                
-                                if selectedSize == productSize.size {
-                                    Image(systemName: "checkmark")
-                                        .foregroundColor(.black)
-                                }
-                            }
-                            .padding()
-                            .contentShape(Rectangle())
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                        Divider()
-                    }
-                }
-                .padding(.horizontal)
-            }
+//            ScrollView {
+//                VStack {
+//                    ForEach(productSizes) { productSize in
+//                        Button(action: {
+//                            self.selectedSize = productSize.size
+//                            // self.selectedSize = productSize.size
+//                            guard let size = selectedSize else { return }
+//                            cartManager.addToCart(product: product, selectedSize: size)
+//                            self.isPresented = false
+//                        }) {
+//                            HStack {
+//                                Text(productSize.size)
+//                                    .foregroundColor(selectedSize == productSize.size ? .black : .gray)
+//                                
+//                                // Display message based on quantity
+//                                Text(stockMessage(for: productSize.quantity))
+//                                    .foregroundColor(.black)
+//                                    .font(.footnote)
+//                                
+//                                Spacer()
+//                                
+//                                if selectedSize == productSize.size {
+//                                    Image(systemName: "checkmark")
+//                                        .foregroundColor(.black)
+//                                }
+//                            }
+//                            .padding()
+//                            .contentShape(Rectangle())
+//                        }
+//                        .buttonStyle(PlainButtonStyle())
+//                        Divider()
+//                    }
+//                }
+//                .padding(.horizontal)
+//            }
         }
         .frame(maxHeight: UIScreen.main.bounds.height / 2)
         .background(Color.white)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WishListView: View {
     @Environment(\.presentationMode) var goBack
-    @EnvironmentObject var wishListManager: WishListManager
+    // @EnvironmentObject var wishListManager: WishListManager
     
     var body: some View {
         VStack {
@@ -23,28 +23,28 @@ struct WishListView: View {
                 fontSize: 44
             )
             
-            if wishListManager.wishlistItems.isEmpty {
-                VStack {
-                    Text("No love shown yet")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                }
-                .frame(maxHeight: .infinity)
-            } else {
-                ForEach(wishListManager.wishlistItems) { wish in
-                    WishlistCard(
-                        action: {},
-                        productImage: "\(wish.productImage)",
-                        productTitle: wish.title,
-                        productDescription: wish.description,
-                        productCategory: wish.category,
-                        productPrice: wish.price,
-                        productSize: "\(wish.productSizes)"
-                    )
-                }
-                .foregroundStyle(.black)
-                .background(.white)
-            }
+//            if wishListManager.wishlistItems.isEmpty {
+//                VStack {
+//                    Text("No love shown yet")
+//                        .font(.headline)
+//                        .fontWeight(.semibold)
+//                }
+//                .frame(maxHeight: .infinity)
+//            } else {
+//                ForEach(wishListManager.wishlistItems) { wish in
+//                    WishlistCard(
+//                        action: {},
+//                        productImage: "\(wish.productImage)",
+//                        productTitle: wish.title,
+//                        productDescription: wish.description,
+//                        productCategory: wish.category,
+//                        productPrice: wish.price,
+//                        productSize: "\(wish.productSizes)"
+//                    )
+//                }
+//                .foregroundStyle(.black)
+//                .background(.white)
+//            }
         }
         .navigationBarBackButtonHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -55,5 +55,5 @@ struct WishListView: View {
 
 #Preview {
     WishListView()
-        .environmentObject(WishListManager())
+        // .environmentObject(WishListManager())
 }

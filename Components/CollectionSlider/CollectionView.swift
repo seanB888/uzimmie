@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct CollectionView: View {
-    @EnvironmentObject var cartManager: CartManager
-    @EnvironmentObject var productVM: ProductViewModel
+    // @EnvironmentObject var cartManager: CartManager
+    // @EnvironmentObject var productVM: ProductViewModel
     var selectedCategory: String
     
-    var filteredProducts: [ProductItems] {
-        productVM.products.filter { product in
-            selectedCategory == "All" || product.category == selectedCategory
-        }
-    }
+//    var filteredProducts: [ProductItems] {
+//        productVM.products.filter { product in
+//            selectedCategory == "All" || product.category == selectedCategory
+//        }
+//    }
     
     var body: some View {
         HStack {
@@ -35,38 +35,38 @@ struct CollectionView: View {
         .padding(.vertical, 15)
         
         //MARK: - Product List
-        TabView {
-            ForEach(filteredProducts, id: \.id) { item in
-                NavigationLink(destination: DetailView(product: item).environmentObject(cartManager)) {
-                    LargeProductCard(
-                        action: {
-                            cartManager.addToCart(product: item)
-                        },
-                        productTitle: item.title,
-                        productCategory: item.category,
-                        productPrice: String(format: "$%.2f", item.price),
-                        productImages: item.productImage,
-                        placeholderImage: Image("design-1")
-                    
-                    )
-                    .environmentObject(cartManager)
-                    .foregroundStyle(.black)
-                }
-            }
-        }
-        .frame(height: 450)
-        .tabViewStyle(.page)
+//        TabView {
+//            ForEach(filteredProducts, id: \.id) { item in
+//                NavigationLink(destination: DetailView(product: item).environmentObject(cartManager)) {
+//                    LargeProductCard(
+//                        action: {
+//                            cartManager.addToCart(product: item)
+//                        },
+//                        productTitle: item.title,
+//                        productCategory: item.category,
+//                        productPrice: String(format: "$%.2f", item.price),
+//                        productImages: item.productImage,
+//                        placeholderImage: Image("design-1")
+//                    )
+//                }
+//                .environmentObject(cartManager)
+//                .foregroundStyle(.black)
+//            }
+//        }
+//        .frame(height: 450)
+//        .tabViewStyle(.page)
+
     }
 }
 
 #Preview {
     CollectionView(selectedCategory: "All")
-        .environmentObject(CartManager())
-        .environmentObject(ProductViewModel())
+//        .environmentObject(CartManager())
+//        .environmentObject(ProductViewModel())
 }
 
-extension ProductItems: Equatable {
-    static func == (lhs: ProductItems, rhs: ProductItems) -> Bool {
-        return lhs.id == rhs.id
-    }
-}
+//extension ProductItems: Equatable {
+//    static func == (lhs: ProductItems, rhs: ProductItems) -> Bool {
+//        return lhs.id == rhs.id
+//    }
+//}

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CartItemCard: View {
-    @StateObject var productVM = ProductViewModel()
-    @EnvironmentObject var cartManager: CartManager
-    var cartItem: CartItem
+    // @StateObject var productVM = ProductViewModel()
+    // @EnvironmentObject var cartManager: CartManager
+    // var cartItem: CartItem
     @State var action: () -> Void
     var productImage: String
     var productTitle: String
@@ -67,7 +67,7 @@ struct CartItemCard: View {
                     Text("Qty")
                     Button(action: {
                         // minus count action...
-                        cartManager.decreaseQuantity(of: cartItem)
+                        // cartManager.decreaseQuantity(of: cartItem)
                     }) {
                         Image(systemName: "minus")
                             .foregroundStyle(.white)
@@ -79,11 +79,11 @@ struct CartItemCard: View {
                     }
                     
                     // Quantity count...
-                    Text("\(cartItem.quantity)")
+                    // Text("\(cartItem.quantity)")
                     
                     Button(action: {
                         // plus count action...
-                        cartManager.increaseQuantity(of: cartItem)
+                        // cartManager.increaseQuantity(of: cartItem)
                     }) {
                         Image(systemName: "plus")
                             .foregroundStyle(.white)
@@ -137,9 +137,17 @@ struct CartItemCard: View {
 
 #Preview {
     CartItemCard(
-        cartItem: CartItem(product: ProductItems(id: "", data: ["": ""]), selectedSize: "M", quantity: 1), action: {}, productImage: "", productTitle: "", productDescription: "", productCategory: "", productPrice: 0.5, productSize: "")
-    .environmentObject(ProductViewModel())
-    .environmentObject(CartManager())
+        action: {},
+        productImage: "design--2",
+        productTitle: "Car Culture",
+        productDescription: "Japan lifestyle car culture",
+        productCategory: "Tees",
+        productPrice: 24.0,
+        productSize: "L")
+//    CartItemCard(
+//        cartItem: CartItem(product: ProductItems(id: "", data: ["": ""]), selectedSize: "M", quantity: 1), action: {}, productImage: "", productTitle: "", productDescription: "", productCategory: "", productPrice: 0.5, productSize: "")
+//    .environmentObject(ProductViewModel())
+//    .environmentObject(CartManager())
 }
 
 struct ShippingInformation: View {

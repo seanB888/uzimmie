@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Home: View {
     @State private var selectedCategory: String = "All"
-    @EnvironmentObject var cartManager: CartManager
     @State private var navigateToView = false
     
     var body: some View {
@@ -27,16 +26,12 @@ struct Home: View {
                 )
                 .padding(.bottom, 20)
                 
-                NavigationLink(destination: Profile(), isActive: $navigateToView) { EmptyView() }
-                
                 // MARK: - Category List
                 CategoryNavBar(selectedCategory: $selectedCategory)
                     .padding(.leading, 10)
                 
                 // MARK: - Collection view
-                CollectionView(selectedCategory: selectedCategory)
-                    .environmentObject(cartManager)
-                
+                // CollectionView()
                 Spacer()
             }
             .foregroundStyle(.black)
@@ -47,5 +42,4 @@ struct Home: View {
 
 #Preview {
     Home()
-        .environmentObject(CartManager())
 }

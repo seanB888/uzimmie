@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CartButton: View {
-    @EnvironmentObject var cartManager: CartManager
+    // @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -19,15 +19,15 @@ struct CartButton: View {
                 .background(.ultraThinMaterial)
                 .clipShape(Circle())
             
-            if cartManager.productCount > 0 {
-                Text("\(cartManager.productCount)")
-                    .font(.caption2)
-                    .padding(5)
-                    .background(Color.red)
-                    .foregroundColor(.white)
-                    .clipShape(Circle())
-                    .offset(x: -5, y: -5)
-            }
+//            if cartManager.productCount > 0 {
+//                Text("\(cartManager.productCount)")
+//                    .font(.caption2)
+//                    .padding(5)
+//                    .background(Color.red)
+//                    .foregroundColor(.white)
+//                    .clipShape(Circle())
+//                    .offset(x: -5, y: -5)
+//            }
             
         }
     }
@@ -35,5 +35,5 @@ struct CartButton: View {
 
 #Preview {
     CartButton()
-        .environmentObject(CartManager())
+        // .environmentObject(CartManager())
 }

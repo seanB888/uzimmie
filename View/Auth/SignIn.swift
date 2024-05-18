@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignIn: View {
-    @EnvironmentObject var authManager: AuthManager
+    // @EnvironmentObject var authManager: AuthManager
     @Environment(\.presentationMode) var goBack
     @State private var username: String = ""
     @State private var password: String = ""
@@ -19,13 +19,13 @@ struct SignIn: View {
     @State private var showConfirmPassword: Bool = false
     @State private var showContent: Bool = false
     
-    private func handleSignIn() {
-        authManager.signIn(email: username, password: password)
-    }
-    
-    private func handleSignUp() {
-        authManager.signUp(email: email, password: password)
-    }
+//    private func handleSignIn() {
+//        authManager.signIn(email: username, password: password)
+//    }
+//    
+//    private func handleSignUp() {
+//        authManager.signUp(email: email, password: password)
+//    }
     
     var body: some View {
         ScrollView {
@@ -152,60 +152,60 @@ struct SignIn: View {
                     .frame(maxWidth: .infinity)
                 }
                 
-                if showContent == false {
-                    CustomSolidButton(
-                        action: {
-                            authManager.signIn(email: username, password: password)
-                        },
-                        buttonTitle: "Sign in",
-                        foregroundColor: .black,
-                        backgroundColor: .orange
-                        
-                    )
-                }
+//                if showContent == false {
+//                    CustomSolidButton(
+//                        action: {
+//                            authManager.signIn(email: username, password: password)
+//                        },
+//                        buttonTitle: "Sign in",
+//                        foregroundColor: .black,
+//                        backgroundColor: .orange
+//                        
+//                    )
+//                }
                 
                 // MARK: - Sign up
-                if showContent {
-                    CustomSolidButton(
-                        action: {
-                            authManager.signUp(email: username, password: password)
-                        },
-                        buttonTitle: "Sign up",
-                        foregroundColor: .orange,
-                        backgroundColor: .black
-                    )
-                    
-                    Text("Go Back From Which You Came")
-                        .font(.footnote)
-                        .fontWeight(.semibold)
-                        .underline()
-                        .onTapGesture {
-                            goBack.wrappedValue.dismiss()
-                        }
-                    
-                } else {
-                    Button {
-                        withAnimation(.easeInOut) {
-                            showContent.toggle()
-                        }
-                    } label: {
-                        Text("Register an Account")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                            .underline()
-                    }
-                    .foregroundStyle(.black)
-                    
-                    Button {
-                        goBack.wrappedValue.dismiss()
-                    } label: {
-                        Text("Go back")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                            .underline()
-                    }
-                    .foregroundStyle(.black)
-                }
+//                if showContent {
+//                    CustomSolidButton(
+//                        action: {
+//                            authManager.signUp(email: username, password: password)
+//                        },
+//                        buttonTitle: "Sign up",
+//                        foregroundColor: .orange,
+//                        backgroundColor: .black
+//                    )
+//                    
+//                    Text("Go Back From Which You Came")
+//                        .font(.footnote)
+//                        .fontWeight(.semibold)
+//                        .underline()
+//                        .onTapGesture {
+//                            goBack.wrappedValue.dismiss()
+//                        }
+//                    
+//                } else {
+//                    Button {
+//                        withAnimation(.easeInOut) {
+//                            showContent.toggle()
+//                        }
+//                    } label: {
+//                        Text("Register an Account")
+//                            .font(.footnote)
+//                            .fontWeight(.semibold)
+//                            .underline()
+//                    }
+//                    .foregroundStyle(.black)
+//                    
+//                    Button {
+//                        goBack.wrappedValue.dismiss()
+//                    } label: {
+//                        Text("Go back")
+//                            .font(.footnote)
+//                            .fontWeight(.semibold)
+//                            .underline()
+//                    }
+//                    .foregroundStyle(.black)
+//                }
             }
             .padding(.horizontal)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

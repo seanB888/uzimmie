@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Header: View {
-    @EnvironmentObject var cartManager: CartManager
+    // @EnvironmentObject var cartManager: CartManager
     @State var action: () -> Void
     var headerTitle: String
     var headerSubTitle: String
@@ -62,5 +62,5 @@ struct Header: View {
         headerIcon: "line.3.horizontal",
         fontSize: 44
     )
-    .environmentObject(CartManager())
+    // .environmentObject(CartManager())
 }
